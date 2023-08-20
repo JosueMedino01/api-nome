@@ -1,0 +1,16 @@
+<button (click)="redirectForHome()">Back</button>
+
+<form  [formGroup]="nameForm" >
+  <div>
+    <label for="name">Name:</label>
+    <input type="text" placeholder="Typing the name..." formControlName="name">
+  </div>
+
+
+
+  <button (click)="searchName()" [disabled]="nameForm.get('name')?.errors" >Search</button>
+</form>
+
+<p *ngIf="invalid ">Não foi possível entrar informações sobre o nome {{nameForm.get("name")?.value}}</p>
+
+<app-name-data [dataName]="dataName" *ngIf="dataName && !loader && !invalid"></app-name-data>
