@@ -1,0 +1,65 @@
+
+img{
+  width: 90vh;
+}
+.container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 100vh;
+  min-width: 680px;
+
+  &-main{
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    min-width: 20em;
+    max-width: 40em;
+
+    &-description{
+      color: var(--cor-description);
+      font-size: var(--size-description);
+      font-weight: var(--weight-description);
+      font-family: var(--family-all);
+      line-height: var(--lineHeight-description);
+      text-align: justify;
+      letter-spacing: 0.15em;
+    }
+
+    &-title{
+      text-align: center;
+      color: var(--cor-title);
+      font-size: var(--size-title);
+      font-weight: var(--weight-title);
+      font-family: var(--family-all);
+      line-height: var(--lineHeight-title);
+      letter-spacing: 0.1em;
+    }
+
+    &-button{
+      text-align: center;
+      width: 100%;
+      color: white;
+      font-size: var(--size-button);
+      font-weight: var(--weight-button);
+      font-family: var(--family-all);
+      background-color: var(--cor-button);
+      padding: 0.5em;
+      transition: 0.08s;
+
+      &:hover{
+        cursor: pointer;
+        background-color: #ee4c4c;
+      }
+
+    }
+  }
+
+  &-image{
+    max-width: 48em;
+  }
+
+
+}

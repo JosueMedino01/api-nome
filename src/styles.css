@@ -1,4 +1,46 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Lato:ital,wght@0,400;0,700;0,900;1,700;1,900&display=swap');
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+:root {
+  /*Colors*/
+  --cor-button: #C33F3E;
+  --cor-description: #2C363C;
+  --cor-title: black;
+  --cor-label: black;
+
+  /*Size*/
+  --size-button: 1.5rem;
+  --size-title: 2.2rem;
+  --size-description: 1.1rem;
+  --size-label: 0.8rem;
+
+  /*Weight*/
+  --weight-button: 600;
+  --weight-title: 900;
+  --weight-description: 400;
+  --weight-label: 600;
+
+  /*line-height*/
+  --lineHeight-title:1.2em;
+  --lineHeight-description:1.5em;
+
+
+   /*line-weight*/
+   --lineWeight-title:1.2em;
+   --lineWeight-description:1.5em;
+
+  /*Family*/
+  --family-all:'Inter', sans-serif;
+
+  /*Paletas*/
+  --cor-main: #C33F3E;
+
+}
+
+button{
+  background-color: transparent;
+  border: none;
+}

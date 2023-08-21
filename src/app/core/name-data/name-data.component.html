@@ -1,7 +1,27 @@
-<div >
-  <h2 >Nome: {{dataName.nome}}</h2>
-  <div *ngFor="let data of dataName.res">
-    <p>{{data.periodo}}  <br> {{data.frequencia}}  </p>
-  </div>
+<div class="chart-container">
+
+
+  <canvas  id="MyChart" >{{ chart }}</canvas>
+
+
+  <!--<img src="assets/grafico.png" alt="Imagem do Grafico">-->
+
+  <!--<table >
+    <tr>
+      <th>#</th>
+      <th>Periodo</th>
+      <th>Frequência</th>
+    </tr>
+
+      <tr *ngFor="let data of dataName.res; let i = index">
+        <th>{{i +1}}</th>
+        <th>{{data.periodo}}</th>
+        <th>{{data.frequencia}}</th>
+      </tr>
+
+  </table>-->
+
+
+
 </div>
 

@@ -10,7 +10,7 @@ import { DataNameInterface } from '../Interfaces/data-name.interface';
 @Component({
   selector: 'app-search-name',
   templateUrl: './search-name.component.html',
-  styleUrls: ['./search-name.component.css']
+  styleUrls: ['./search-name.component.scss']
 })
 export class SearchNameComponent implements OnInit{
 
@@ -18,6 +18,7 @@ export class SearchNameComponent implements OnInit{
   dataName!: DataNameInterface;
   loader = false;
   invalid = false;
+
 
   constructor(private router:Router, private searchService:SearchService){
 
@@ -28,6 +29,7 @@ export class SearchNameComponent implements OnInit{
       name: new FormControl<string>('', [Validators.required]),
     })
 
+    
 
   }
 

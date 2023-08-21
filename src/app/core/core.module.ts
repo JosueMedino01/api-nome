@@ -9,14 +9,18 @@ import { NameDataComponent } from './name-data/name-data.component';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
 
-const MATERIAL_MODULES = [MatInputModule, MatFormFieldModule]
+
+
+const MATERIAL_MODULES = [MatInputModule, MatFormFieldModule, MatButtonModule]
 
 
 @NgModule({
   declarations: [
     SearchNameComponent,
-    NameDataComponent
+    NameDataComponent,
+
   ],
   imports: [
     CommonModule,
@@ -25,7 +29,7 @@ const MATERIAL_MODULES = [MatInputModule, MatFormFieldModule]
     ReactiveFormsModule,
     HttpClientModule, ...MATERIAL_MODULES,
   ],
-  exports:[SearchNameComponent, NameDataComponent, ...MATERIAL_MODULES],
+  exports:[SearchNameComponent, NameDataComponent, ...MATERIAL_MODULES, ],
   providers:[]
 })
 
