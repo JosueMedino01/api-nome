@@ -18,6 +18,8 @@ export class SearchNameComponent implements OnInit{
   dataName!: DataNameInterface;
   loader = false;
   invalid = false;
+  frenqueniaTotal = 0;
+  theBigNumber = 0;
 
 
   constructor(private router:Router, private searchService:SearchService,  private formBulder:FormBuilder){
@@ -61,4 +63,10 @@ export class SearchNameComponent implements OnInit{
       this.loader = false});
   }
 
+  onSumValue(sum: number){
+    this.frenqueniaTotal = sum
+  }
+  onBiggerNumber(big: number){
+    this.theBigNumber = big;
+  }
 }

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { DataNameInterface } from '../Interfaces/data-name.interface';
 import {Chart} from 'chart.js/auto';
 @Component({
@@ -8,6 +8,8 @@ import {Chart} from 'chart.js/auto';
 })
 export class NameDataComponent implements OnInit{
   @Input() dataName!: DataNameInterface;
+  @Output() sumValue = new EventEmitter<any>
+  @Output() biggerValue = new EventEmitter<number>
   showChart = true;
   //chart
   public chart:any;
@@ -23,6 +25,13 @@ export class NameDataComponent implements OnInit{
     const xArray = this.dataName.res.map(e => e.periodo);
     const yArray = this.dataName.res.map(e => e.frequencia);
 
+    //Somando o total da frequência e Emitindo para o component Pai
+    const sum = yArray.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+    const biggerNumber = Math.max(...yArray);
+    this.sumValue.emit(sum);
+    this.biggerValue.emit(biggerNumber);
+
+    //Determinando a maleta de cores do chart
     const colorColum = [
       '#E18C8C',
 
@@ -75,19 +84,7 @@ export class NameDataComponent implements OnInit{
             },
           }
         },
-
-
-
-
-
-
-
-
-
       },
-
-
-
     });
   }
 
@@ -96,4 +93,7 @@ export class NameDataComponent implements OnInit{
   toggleClass(){
     this.showChart = !this.showChart
   }
+
+
+
 }

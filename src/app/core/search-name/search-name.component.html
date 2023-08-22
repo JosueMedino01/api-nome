@@ -31,8 +31,8 @@
 
         <span class="container-form-description-title">| Dados</span>
         <span>| Nome: {{dataName.nome}}</span>
-        <span>| Maior Frequência:</span>
-        <span>| Frequência Total:</span>
+        <span>| Maior Frequência: {{theBigNumber}} </span>
+        <span>| Frequência Total: {{frenqueniaTotal}}</span>
 
 
 
@@ -42,7 +42,8 @@
   </div>
 
   <div class=" container-chart">
-    <app-name-data [dataName]="dataName" *ngIf="dataName && !loader && !invalid" ></app-name-data>
+    <app-name-data [dataName]="dataName" *ngIf="dataName && !loader && !invalid"
+    (sumValue)="onSumValue($event)" (biggerValue)="onBiggerNumber($event)"></app-name-data>
 
   </div>
 
