@@ -1,27 +1,24 @@
-<div class="chart-container">
+<div class="container">
+  <div class="chart-container"
+  [ngClass]="{'disabled': !showChart, 'classeAntiga': showChart}">
+    <canvas  id="MyChart" >{{ chart }}</canvas>
+  </div>
 
-
-  <canvas  id="MyChart" >{{ chart }}</canvas>
-
-
-  <!--<img src="assets/grafico.png" alt="Imagem do Grafico">-->
-
-  <!--<table >
-    <tr>
-      <th>#</th>
-      <th>Periodo</th>
-      <th>Frequência</th>
-    </tr>
-
-      <tr *ngFor="let data of dataName.res; let i = index">
-        <th>{{i +1}}</th>
-        <th>{{data.periodo}}</th>
-        <th>{{data.frequencia}}</th>
+  <table class="table-container"
+    [ngClass]="{'disabled': showChart, 'classeAntiga': !showChart}">
+      <tr class="table-container-one">
+        <th>#</th>
+        <th>Periodo</th>
+        <th>Frequência</th>
       </tr>
 
-  </table>-->
+      <tr *ngFor="let data of dataName.res; let i = index">
+        <td>{{i +1}}</td>
+        <td>{{data.periodo}}</td>
+        <td>{{data.frequencia}}</td>
+      </tr>
 
+    </table>
 
-
+    <button (click)="toggleClass()">Mudar Vizualização</button>
 </div>
-

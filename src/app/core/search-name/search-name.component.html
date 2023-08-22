@@ -1,31 +1,50 @@
 <div class="container">
+
+
+
   <div class="container-item">
 
 
     <form  [formGroup]="nameForm" class="container-form" >
       <div class="container-form-input">
         <label for="name" >Name*</label>
-        <input  placeholder="Ex. Maria" value="Josué" formControlName="name">
+        <input  placeholder="Ex. Maria" formControlName="name">
       </div>
 
       <div class="container-form-btn">
-        <button class="container-form-btn-home" (click)="redirectForHome()">Home</button>
+
         <button
-        [ngClass]="nameForm.get('name')?.errors ? 'container-form-btn-disabled': 'container-form-btn-search'"
-        (click)="searchName()" [disabled]="nameForm.get('name')?.errors" >Search</button>
+        [ngClass]="nameForm.get('name')?.errors ? 'container-form-btn-disabled':
+        'container-form-btn-search'"
+
+
+
+        (click)="searchName()" [disabled]="nameForm.get('name')?.errors" >
+        Search
+      </button>
+      <button class="container-form-btn-home" (click)="redirectForHome()">Home</button>
       </div>
       <p class="container-form-invalid" *ngIf="invalid " >
         [ERROR] Nome não encontrado!
       </p>
+      <p class="container-form-description" [ngClass]="nameForm.get('name')?.errors ? 'disabled':'container-chart'">
 
-      <p class="container-form-description"><span>Curiosidade</span> <br> Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi saepe obcaecati maiores debitis minus laborum ratione modi sunt. Ab provident quis voluptates temporibus aperiam vero reiciendis eligendi nemo fugit aspernatur.</p>
+        <span class="container-form-description-title">| Dados</span>
+        <span>| Nome: {{dataName.nome}}</span>
+        <span>| Maior Frequência:</span>
+        <span>| Frequência Total:</span>
 
+
+
+
+     </p>
     </form>
-
-
   </div>
 
-  <app-name-data [dataName]="dataName" *ngIf="dataName && !loader && !invalid" class="container-item"></app-name-data>
+  <div class=" container-chart">
+    <app-name-data [dataName]="dataName" *ngIf="dataName && !loader && !invalid" ></app-name-data>
+
+  </div>
 
 
 </div>

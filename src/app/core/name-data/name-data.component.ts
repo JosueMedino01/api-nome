@@ -8,7 +8,7 @@ import {Chart} from 'chart.js/auto';
 })
 export class NameDataComponent implements OnInit{
   @Input() dataName!: DataNameInterface;
-
+  showChart = true;
   //chart
   public chart:any;
 
@@ -22,9 +22,14 @@ export class NameDataComponent implements OnInit{
     //Geting data for chart
     const xArray = this.dataName.res.map(e => e.periodo);
     const yArray = this.dataName.res.map(e => e.frequencia);
+
+    const colorColum = [
+      '#E18C8C',
+
+    ]
+
+
     this.chart = new Chart("MyChart", {
-
-
 
 
       type: 'bar', //this denotes tha type of chart
@@ -35,7 +40,7 @@ export class NameDataComponent implements OnInit{
           {
 
             data: [...yArray],
-            backgroundColor: `var(--cor-main)`
+            backgroundColor: colorColum.slice(0, yArray.length)
           },
 
         ]
@@ -49,8 +54,32 @@ export class NameDataComponent implements OnInit{
           },
           legend:{
             display:false,
+          },
+        },
+
+        scales: {
+          x: {
+            ticks: {
+              font: {
+                size: 9, // Altere o tamanho da fonte para o valor desejado
+              },
+              color: 'black' // Altere a cor dos rótulos X-Axis para a cor desejada
+            },
+          },
+          y: {
+            ticks: {
+              font: {
+                size: 10, // Altere o tamanho da fonte para o valor desejado
+              },
+              color: 'black' // Altere a cor dos rótulos Y-Axis para a cor desejada
+            },
           }
-        }
+        },
+
+
+
+
+
 
 
 
@@ -58,6 +87,13 @@ export class NameDataComponent implements OnInit{
       },
 
 
+
     });
+  }
+
+
+
+  toggleClass(){
+    this.showChart = !this.showChart
   }
 }

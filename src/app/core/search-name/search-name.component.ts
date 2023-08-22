@@ -1,6 +1,6 @@
 import { SearchService } from './../services/search.service';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators} from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder} from '@angular/forms';
 import { Router } from '@angular/router';
 import { DataNameInterface } from '../Interfaces/data-name.interface';
 
@@ -20,16 +20,25 @@ export class SearchNameComponent implements OnInit{
   invalid = false;
 
 
-  constructor(private router:Router, private searchService:SearchService){
+  constructor(private router:Router, private searchService:SearchService,  private formBulder:FormBuilder){
 
   }
 
   ngOnInit():void{
     this.nameForm = new FormGroup({
-      name: new FormControl<string>('', [Validators.required]),
+      name: new FormControl<string>('Josué', [Validators.required]),
     })
 
-    
+    this.searchService.searchName('Josué').subscribe((element)=> {
+      if(element.length > 0){
+        this.dataName = element[0]
+        this.invalid = false
+      } else {
+        this.invalid = true;
+      }
+
+      this.loader = false});
+
 
   }
 

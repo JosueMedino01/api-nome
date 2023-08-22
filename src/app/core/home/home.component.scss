@@ -9,7 +9,7 @@ img{
   align-items: center;
   flex-wrap: wrap;
   height: 100vh;
-  min-width: 680px;
+  width: 100%;
 
   &-main{
     display: flex;
@@ -40,6 +40,7 @@ img{
 
     &-button{
       text-align: center;
+      min-width: 100px;
       width: 100%;
       color: white;
       font-size: var(--size-button);
@@ -58,8 +59,76 @@ img{
   }
 
   &-image{
+    min-width: 15px;
     max-width: 48em;
   }
+
+
+}
+
+@media screen and (max-width: 1200px){
+  .container{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .container-main{
+    margin-top: 1.8em;
+    min-width: 1em;
+  }
+  .container-main-description{
+    display: none;
+  }
+
+  .container-image{
+    img{
+      min-width: 250px;
+      width: 400px;
+    }
+
+  }
+
+
+
+
+}
+
+
+@media screen and (max-width: 520px){
+  .container{
+    justify-content: center;
+    gap: 2.5em;
+  }
+  .container-main-title{
+
+
+    font-size: 1.0rem;
+    min-width: 60%;
+    max-width: 80%;
+  }
+  .container-main{
+    gap: 0.5em;
+    width: 300px;
+    align-items: center;
+  }
+  .container-main-button{
+    font-size: 1rem;
+    min-width: 60%;
+    max-width: 80%;
+  }
+  img{
+    width: 50px;
+  }
+
+  .container-image{
+    img{
+      min-width: 50px;
+      width: 300px;
+    }
+
+  }
+
+
 
 
 }
